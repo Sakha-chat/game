@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakha Challenge</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Lucida Grande', 'Helvetica Neue', sans-serif;
+      background-color: #fff7f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Form Styles */
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .form-title {
+      text-align: center;
+      color: #ff6b00;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #ff6b00;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #ff6b00;
+    }
+
+    .invalid {
+      border-color: red !important;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6b00;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e05a00;
+    }
+
+    .footnote {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      margin-top: 20px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1 class="form-title">Sakha Challenge</h1>
+    <form method="post" action="log.php">
+      
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+        <div id="name-error" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="email-address">E-mail Address *</label>
+        <input type="email" id="email-address" name="email-address" required>
+        <div id="email-address-error" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="phone-number">Phone Number *</label>
+        <input type="tel" id="phone-number" name="phone-number" required>
+        <div id="phone-number-error" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="instagram-handle">Instagram Handle</label>
+        <input type="text" id="instagram-handle" name="instagram-handle">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="footnote">
+      Never submit passwords in Forms.<br>
+      <a href="#" target="_blank">Report Abuse</a> - <a href="#" target="_blank">Terms of Service</a> - <a href="#" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const emailInput = document.getElementById('email');
+      const nameInput = document.getElementById('name');
+      const emailAddressInput = document.getElementById('email-address');
+      const phoneNumberInput = document.getElementById('phone-number');
+
+      // Validate email
+      const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!emailRegex.test(emailInput.value)) {
+        emailInput.classList.add('invalid');
+        document.getElementById('email-error').textContent = 'Please enter a valid email address.';
+        return false;
+      } else {
+        emailInput.classList.remove('invalid');
+        document.getElementById('email-error').textContent = '';
+      }
+
+      // Validate name
+      if (nameInput.value.trim() === '') {
+        nameInput.classList.add('invalid');
+        document.getElementById('name-error').textContent = 'Please enter your name.';
+        return false;
+      } else {
+        nameInput.classList.remove('invalid');
+        document.getElementById('name-error').textContent = '';
+      }
+
+      // Validate email address
+      if (!emailRegex.test(emailAddressInput.value)) {
+        emailAddressInput.classList.add('invalid');
+        document.getElementById('email-address-error').textContent = 'Please enter a valid email address.';
+        return false;
+      } else {
+        emailAddressInput.classList.remove('invalid');
+        document.getElementById('email-address-error').textContent = '';
+      }
+
+      // Validate phone number
+      const phoneNumberRegex = /^\d{10}$/;
+      if (!phoneNumberRegex.test(phoneNumberInput.value)) {
+        phoneNumberInput.classList.add('invalid');
+        document.getElementById('phone-number-error').textContent = 'Please enter a valid 10-digit phone number.';
+        return false;
+      } else {
+        phoneNumberInput.classList.remove('invalid');
+        document.getElementById('phone-number-error').textContent = '';
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <noscript>
+        <div style="text-align: center; padding: 20px;">
+            <h1>Please enable JavaScript to access this page.</h1>
+        </div>
+    </noscript>
+
+    <div class="container">
+        <h1 class="title">Challenge 1</h1>
+        <div id="task-container" class="description">
+            <!-- Task will be loaded here -->
+            <p>Task 2: Watch this video, make notes, and share the picture of notes with curator.</p>
+            <!-- YouTube iframe -->
+            <iframe id="youtube-video" width="380" height="270" src="https://www.youtube.com/embed/AyPmsFXZIq0?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="timer-container" class="description" style="display: none;">
+            <!-- Timer message will be loaded here -->
+        </div>
+        <div class="buttons">
+            <button id="taskCompletedButton" class="button" style="display: none;">Task Completed</button>
+            <button id="goToNextChallengeButton" class="button" style="display: none;">Take me to next challenge</button>
+            <button id="shareButton" class="button" style="display: none;">Share on WhatsApp</button>
+                        <button id="shareButton" class="button" style="display: none;">Share on WhatsApp</button>
+    
+        </div>
+    </div>
+
+    <script>
+        // Check if JavaScript is enabled
+        document.addEventListener("DOMContentLoaded", function() {
+            var noscriptElement = document.querySelector("noscript");
+            if (noscriptElement) {
+                noscriptElement.style.display = "none";
+            }
+        });
+
+        // Function to fetch and display global time
+        function fetchGlobalTime() {
+            fetch('http://worldtimeapi.org/api/ip')
+                .then(response => response.json())
+                .then(data => {
+                    const time = new Date(data.datetime);
+                    document.getElementById('timer-container').innerHTML = "Global Time: " + time.toLocaleString();
+                })
+                .catch(error => {
+                    console.error('Error fetching global time:', error);
+                });
+        }
+
+        // Handle the click event of the "Task Completed" button
+        document.getElementById("taskCompletedButton").addEventListener("click", function() {
+            // This function will be executed when the button is clicked
+            alert("Task completed!");
+            // You can add additional code here to perform actions when the button is clicked
+
+            // Show the timer container
+            document.getElementById("timer-container").style.display = "block";
+
+            // Hide the "Task Completed" button
+            document.getElementById("taskCompletedButton").style.display = "none";
+
+            // Fetch global time
+            fetchGlobalTime();
+
+            // Set the target date to tomorrow at 4:00 AM
+            var targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 1);
+            targetDate.setHours(4, 0, 0, 0);
+
+            // Update the timer display every second
+            var timerInterval = setInterval(function() {
+                // Get the current time
+                var currentTime = new Date().getTime();
+
+                // Calculate the remaining time
+                var remainingTime = targetDate - currentTime;
+
+                // Calculate hours, minutes, and seconds
+                var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                // Display the timer
+                document.getElementById("timer-container").innerHTML = "Next task in: " + hours + "h " + minutes + "m " + seconds + "s";
+document.getElementById("shareButton").style.display = "block";
+      
+                // If the timer ends, show the "Take me to next challenge" button
+                if (remainingTime <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById("goToNextChallengeButton").style.display = "block";
+                    
+                }
+            }, 1000);
+        });
+document.getElementById("shareButton").addEventListener("click", function() {
+            // This function will be executed when the "Share" button is clicked
+            // Open WhatsApp with a predefined message
+            var message = encodeURIComponent("I have completed the challenge!");
+            var whatsappURL = "https://wa.me/?text=" + message;
+            window.open(whatsappURL);
+        });
+        // Handle the click event of the "Take me to next challenge" button
+        document.getElementById("goToNextChallengeButton").addEventListener("click", function() {
+            // Redirect to c2.html
+            window.location.href = "c2.html";
+        });
+
+        // YouTube iframe API callback
+        function onYouTubeIframeAPIReady() {
+            var player = new YT.Player('youtube-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        document.getElementById("shareButton").addEventListener("click", function() {
+            // This function will be executed when the "Share" button is clicked
+            // Open WhatsApp with a predefined message
+            var message = encodeURIComponent("I have completed the challenge!");
+            var whatsappURL = "https://wa.me/?text=" + message;
+            window.open(whatsappURL);
+        });
+
+        // Function to handle YouTube player state change
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                // Show the "Task Completed" button
+                document.getElementById("taskCompletedButton").style.display = "block";
+                
+            }
+        }
+    </script>
+    <!-- Load the YouTube iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
