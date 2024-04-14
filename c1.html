@@ -51,7 +51,7 @@
         }
 
         // Handle the click event of the "Task Completed" button
-        document.getElementById("taskCompletedButton").addEventListener("click", function() {
+        document.getElementById("taskCompletedButton").addEventListener("click", async function() {
             // This function will be executed when the button is clicked
             alert("Task completed!");
             // You can add additional code here to perform actions when the button is clicked
@@ -66,17 +66,26 @@
             fetchGlobalTime();
 
             // Set the target date to tomorrow at 4:00 AM
-            var targetDate = new Date();
+            var targetDate = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((res)=> res.json()).then((res)=>{return res.datetime});
+                targetDate = new Date(targetDate);
+
             targetDate.setDate(targetDate.getDate() + 1);
             targetDate.setHours(4, 0, 0, 0);
 
             // Update the timer display every second
-            var timerInterval = setInterval(function() {
+            var timerInterval = setInterval(async function() {
                 // Get the current time
-                var currentTime = new Date().getTime();
+                var currentTime = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((res)=> res.json()).then((res)=>{return res.datetime});
+                currentTime = new Date(currentTime);
+                // console.log(currentTime);
+                
+                // console.log(currentTime.valueOf());
+                let remainingTime = (targetDate.valueOf() - currentTime.valueOf());
 
                 // Calculate the remaining time
-                var remainingTime = targetDate - currentTime;
+                // var remainingTime = new Date(targetDate.valueOf() - 1000);
+                //- currentTime.valueOf());
+                console.log(remainingTime);
 
                 // Calculate hours, minutes, and seconds
                 var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
