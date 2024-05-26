@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Component</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 480px;
+            background-color: white;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #FEF1E9;
+            height: 94vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 0 1px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .header-icon {
+            width: 19px;
+            margin-top: 14px;
+        }
+
+        .header-avatar {
+            width: 63px;
+            border-radius: 100px;
+        }
+
+        .progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .progress-bar {
+            display: flex;
+            flex-grow: 1;
+            background-color: #D9D9D9;
+            border-radius: 30px;
+        }
+
+        .progress-fill {
+            background-color: #793C29;
+            height: 17px;
+            border-radius: 30px;
+            width: 50%; /* Adjust width as necessary */
+        }
+
+        .progress-icon {
+            width: 30px;
+        }
+
+        .task {
+            margin-top: 40px;
+            padding: 10px 20px;
+            border: 1px solid #000000;
+            border-radius: 3px 3px 3px 3px;
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #312B28;
+        }
+
+        .task span {
+            font-size: 0.875rem;
+            color: #793B2A;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+            background-color: #E6D8CF;
+            border: 2px dashed #000;
+            border-radius: 8px;
+            padding: 14px 36px;
+            max-width: 180px;
+            margin: 35vh auto 0;
+        }
+
+        .cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .cta-icon {
+            width: 28px;
+        }
+
+        .dotted-divider {
+            border-left: 2px dotted #000;
+            height: 28px; /* Adjust height as necessary */
+        }
+
+        .continue-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            padding: 10px 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #fff;
+            background-color: #793C29;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0199f46dbf46ce90c54731b90be7c1a274b6b29da675d455c10462b1583e5436?apiKey=290b2159386a48ec963871817c9791f6&" class="header-icon" />
+                <div>Level 1</div>
+                <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/7f8858c5f059ff26b55ee67eae6fdf722df41966dc13e8da2543232d5b6aea05?apiKey=290b2159386a48ec963871817c9791f6&" class="header-avatar" />
+            </div>
+            <div class="progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a6142e2b9085f30deeaa92f361b2e18948cfd20e393879364ffcda87a44f431f?apiKey=290b2159386a48ec963871817c9791f6&" class="progress-icon" />
+            </div>
+            <div class="task">
+                Go on a solo morning walk today, by 5:00 am today, collect 5 different flowers, send a photo.
+                <span>(Link)</span>
+            </div>
+            <div class="cta-container">
+                <div class="cta">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/96521417df34729b4657b2a22a403746c4dd14c634f102d6bfba5da50e73f622?apiKey=290b2159386a48ec963871817c9791f6&" class="cta-icon" />
+                    <div class="dotted-divider"></div>
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/dfc9b022a21fe435ec9f6157bf3741e409f41641c4117eead3723933ea1e3641?apiKey=290b2159386a48ec963871817c9791f6&" class="cta-icon" />
+                </div>
+            </div>
+            <div class="continue-button">CONTINUE</div>
+        </div>
+    </div>
+</body>
+</html>
