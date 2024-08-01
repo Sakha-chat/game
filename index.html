@@ -30,7 +30,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#FFB965
             position: relative;
             cursor: pointer; /* Added cursor pointer for unlocked levels */
         }
@@ -38,7 +38,7 @@
         .level-inner {
             width: 80px;
             height: 80px;
-            background-color: #723729;
+            background-color: #FF8C00;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -50,7 +50,7 @@
         }
 
         .level.locked .level-inner {
-            background-color: #ccc;
+            background-color: #CCCCCC;
         }
 
         .stars {
@@ -66,13 +66,13 @@
         }
 
         .stars .star.empty {
-            color: #BCBCBC; /* Gray color for unfilled stars */
+            color: #FFFFFF; /* Gray color for unfilled stars */
         }
 
         .level.locked::after {
             content: '🔒';
             font-size: 24px;
-            color: #888;
+            color: #888888;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -120,7 +120,7 @@
                             stars.appendChild(star);
                         }
 
-                        const borderColors = ['#ccc', '#962F38', '#9B2D37', '#962F38']; // Colors for 0, 1, 2, 3 stars
+                        const borderColors = ['#ccc', '#FF8C00', '#FF910B', '#FFB965']; // Colors for 0, 1, 2, 3 stars
                         level.style.borderColor = borderColors[starCount];
                         levelInner.appendChild(stars);
 
