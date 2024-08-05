@@ -1,1 +1,107 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sakha Book Store - Game Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="navparticles.css">
+    <style>
+        :root {
+            --primary-font-color: #FF8C00;
+            --primary-color: #FF8C00;
+            --text-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            background-color: #FFFFFF00;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-font-color);
+            margin-bottom: 20px;
+            margin-top: -3px;
+            font-weight: 700;
+            filter: drop-shadow(1px 1px 1px rgba(207, 207, 207, 0)) drop-shadow(-1px -1px 2px rgba(197, 192, 192, 0.78));
+            font-size: 1.8rem;
+        }
+
+        .coming-soon {
+            font-size: 2rem;
+            color: var(--primary-font-color);
+            text-align: center;
+            margin-top: 50px;
+            border: 2px solid var(--primary-font-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        nav.navigation {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary-color);
+            padding: 10px 0;
+        }
+
+        nav.navigation .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.navigation .nav-item i {
+            margin-right: 8px;
+        }
+
+        nav.navigation .nav-item.nav-active {
+            background-color: rgba(255, 140, 0, 0.8);
+        }
+
+        nav.navigation .nav-item:hover {
+            background-color: rgba(255, 140, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="spiritual-particles" id="particles"></div>
+
+    <div class="container">
+        <h2>Sakha - Game Coming Soon</h2>
+        <div class="coming-soon">
+            Game Coming Soon
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <a href="https://sakha-chat.vercel.app" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="https://vedic.sakha.chat" class="nav-item"><i class="fas fa-book"></i><span>Books</span></a>
+        <a href="https://home.sakha.chat/mala" class="nav-item"><i class="fas fa-om"></i><span>Chanting</span></a>
+        <a href="https://gita.sakha.chat" class="nav-item"><i class="fas fa-leaf"></i><span>Remedies</span></a>
+        <a href="https://game.sakha.chat/" class="nav-item nav-active"><i class="fas fa-gamepad"></i><span>Game</span></a>
+    </nav>
+
+    <script src="particles.js">particles.js</script>
+</body>
+  </html>
